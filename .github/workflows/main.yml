@@ -156,7 +156,8 @@ jobs:
             -var="location=${{ env.LOCATION }}" \
             -var="suffix=${{ env.SUFFIX }}" \
             -var="environment=production" \
-            -var="image_tag=bootstrap"
+            -var="image_tag=bootstrap" \
+            -lock=false
 
       - name: ACR login server (terraform output)
         working-directory: iac
@@ -178,7 +179,8 @@ jobs:
             -var="location=${{ env.LOCATION }}" \
             -var="suffix=${{ env.SUFFIX }}" \
             -var="environment=production" \
-            -var="image_tag=${{ env.IMAGE_TAG }}"
+            -var="image_tag=${{ env.IMAGE_TAG }}" \
+            -lock=false
 
       - name: Smoke test (production)
         working-directory: iac
